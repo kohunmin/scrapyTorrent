@@ -22,6 +22,7 @@ class BlogSpider(scrapy.Spider):
             yield scrapy.Request(response.urljoin(url), self.parse_contents)
 
     def parse_contents(self, response):
+        title = response.css('div#contents > div#bo_v > div#bo_v_title > h1::text').extract()
         urlList = response.css('div#contents > div#bo_v > div.bo_v_file > a::attr("href")').re("magnet:.*&")
         createTime = response.css('div#contents > div#bo_v > div.bo_v_torrent > table > tr > td.value::text').re("[0-9]{4}-[0-9]{2}-[0-9]{2}.*")
         command = "transmission-remote 9091 -a " + urlList[0]
@@ -29,7 +30,7 @@ class BlogSpider(scrapy.Spider):
         createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
         diffDateTime = nowDateTime - createDateTime
         if diffDateTime.seconds < self.seconds :
-            print ( "url" , response.request.url , "command", command, 'seconds', diffDateTime.seconds )
+            print ("title", title, "url" , response.request.url , "command", command, 'seconds', diffDateTime.seconds )
             os.system(command.encode('utf-8'))
 
         yield {'url' : urlList[0]}
