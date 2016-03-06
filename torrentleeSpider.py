@@ -13,7 +13,7 @@ class BlogSpider(scrapy.Spider):
             yield scrapy.Request(response.urljoin(url), self.parse_contents)
 
     def parse_contents(self, response):
-        urlList = response.css('div#contents > div#bo_v > div.bo_v_file > a::attr("href")').re("magnet:.*")
+        urlList = response.css('div#contents > div#bo_v > div.bo_v_file > a::attr("href")').re("magnet:.*&")
         for url in urlList:
             print url
         #f = open(url,'wb')
