@@ -19,21 +19,21 @@ class BlogSpider(scrapy.Spider):
 
     def parse(self, response):
         Urllist = response.css('li.li_subject > a::attr("href")')
-        for url in Urllist.re(self.domain + "/bbs/board.php.*"):
-#            print url
+        for url in Urllist.re(".*/bbs/board.php.*"):
+            print url
             yield scrapy.Request(response.urljoin(url), self.parse_contents)
 
     def parse_contents(self, response):
-        title = response.css('div#contents > div#bo_v > div#bo_v_title > h1::text').extract()
-        urlList = response.css('div#contents > div#bo_v > div.bo_v_link > a::attr("href")').re("magnet:.*&")
-        createTime = response.css('div#contents > div#bo_v > div.bo_v_torrent > table > tr > td.value::text').re("[0-9]{4}-[0-9]{2}-[0-9]{2}.*")
+        title = response.css('header#bo_v_title > div > h3::text').extract()
+        urlList = response.css('section#bo_v_link > ul.list-unstyled > li > div > div > a::attr("href")').re("magnet:.*")
+        createTime = response.css('section#bo_v_torrent > table > tr > td.value::text').re("[0-9]{4}-[0-9]{2}-[0-9]{2}.*")[0]
         command = "transmission-remote 9091 -w " + self.path + " -a " + urlList[0]
         nowDateTime = datetime.now()
-        createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
+        createDateTime = datetime.strptime(createTime,'%Y-%m-%d %H:%M:%S')
         diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
         if diffSeconds < self.seconds :
             print "[torrent]torrent download start"
-            print "title : " + title[0].encode("utf-8").strip() + "\nurl : " + response.request.url.encode("utf-8") + "\ncommand : " + command.encode("utf-8") + "\ncreatTime : " + createTime + "\ndiff seconds : " + str(diffSeconds)
+            print "title : " + title[0].encode("utf-8").strip() + "\nurl : " + response.request.url.encode("utf-8") + "\ncommand : " + command + "\ncreatTime : " + createTime + "\ndiff seconds : " + str(diffSeconds)
             os.system(command.encode('utf-8'))
 
         yield {"title" : title[0].encode("utf-8").strip(), "url" : response.request.url.encode("utf-8") , "command" : command.encode("utf-8"), "createTime" : createTime , "seconds" : diffSeconds }
