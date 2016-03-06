@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1">
+<meta name="robots" content="ALL">
+<meta name="keywords" content="토렌트,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,toptrn,toptrn.com,탑토렌트, 탑토렌, torrent,magnet,download,hdtv, 영화, TV, 예능, 시사, 드라마, 음악, 동영상, 사이트, 토렌트,토렌트다운,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,torrent,magnet,download,자막링크, 토렌트, 영화, 외국영화,,토렌트, "/>
+<meta name="Subject" content="토렌트:세상의 모든 토렌트는 탑토렌트에서">
+<meta name="description" content="토렌트,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,toptrn,toptrn.com,탑토렌트, 탑토렌, torrent,magnet,download,hdtv, 영화, TV, 예능, 시사, 드라마, 음악, 동영상, 사이트, 토렌트,토렌트다운,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,torrent,magnet,download,자막링크, 토렌트, 영화, 외국영화,,토렌트, "/>
+<meta name="description-xion" content="토렌트,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,toptrn,toptrn.com,탑토렌트, 탑토렌, torrent,magnet,download,hdtv, 영화, TV, 예능, 시사, 드라마, 음악, 동영상, 사이트, 토렌트,토렌트다운,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,torrent,magnet,download,자막링크, 토렌트, 영화, 외국영화,,토렌트, "/>
+<meta name="author" content="토렌트, 무료동영상 다운로드, 무료성인동영상 다운로드, 토렌트다운로드, 토렌트,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,toptrn,toptrn.com,탑토렌트, 탑토렌, torrent,magnet,download,hdtv, 영화, TV, 예능, 시사, 드라마, 음악, 동영상, 사이트, 토렌트,토렌트다운,마그넷,파일,자료,공유,영화,드라마,오락,스포츠,프로그램,다운로드,다시보기,torrent,magnet,download,자막링크, 토렌트, 영화, 외국영화,,토렌트,">
+<meta name="writer" content=" toptorrent">
+<meta name="copyright" content="© 2015 toptrn.com Inc.">
+<meta name="content-language" content="kr">
+<meta name="build" content="2015. 12. 23">
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<meta http-equiv="Cache-Control" content="No-Cache">
+<meta http-equiv="Pragma" content="No-Cache">
+
+
+<title>오류안내 페이지 | 탑토렌트 : 영화, TV예능, 시사, 드라마, 음악, 동영상 다운로드 사이트</title>
+<link rel="stylesheet" href="http://toptrn.com/css/default.css">
+<link rel="stylesheet" href="http://toptrn.com/css/apms.css">
+<link rel="stylesheet" href="http://toptrn.com/css/font-awesome/css/font-awesome.min.css">
+<!--[if lte IE 8]>
+<script src="http://toptrn.com/js/html5.js"></script>
+<![endif]-->
+<script>
+// 자바스크립트에서 사용하는 전역변수 선언
+var g5_url       = "http://toptrn.com";
+var g5_bbs_url   = "http://toptrn.com/bbs";
+var g5_is_member = "";
+var g5_is_admin  = "";
+var g5_is_mobile = "";
+var g5_bo_table  = "";
+var g5_sca       = "";
+var g5_pim       = "";
+var g5_editor    = "";
+var g5_responsive    = "1";
+var g5_cookie_domain = "";
+</script>
+<script src="http://toptrn.com/js/jquery-1.8.3.min.js"></script>
+<script src="http://toptrn.com/js/common.js"></script>
+<script src="http://toptrn.com/js/wrest.js"></script>
+<script src="http://toptrn.com/js/apms.js"></script>
+<link rel="shortcut icon" href="http://www.toptrn.com/favicon.ico" />
+
+<!-- 
+<script type="text/javascript"> 
+ $(function () { 
+ var cssTop = parseInt($("#sky").css("top")); 
+  $(window).scroll(function () { 
+  var position = $(window).scrollTop(); 
+  $("#sky").stop().animate({ "top": (position + cssTop) + "px" }, 300); 
+  }); 
+}); 
+</script> 
+
+<script type="text/javascript"> 
+ $(function () { 
+ var cssTop = parseInt($("#sky1").css("top")); 
+  $(window).scroll(function () { 
+  var position = $(window).scrollTop(); 
+  $("#sky1").stop().animate({ "top": (position + cssTop) + "px" }, 300); 
+  }); 
+}); 
+</script> -->
+
+
+</head>
+<body class="responsive is-pc">
+
+<!--
+<div id="sky" style="position:absolute;z-index:100;top:187px;left:50%;margin-left:580px;width:150px; height:75px;border:0px solid gray;">
+</div>
+-->
+
+
+<!--
+<div id="sky1" style="position:absolute;z-index:100;top:187px;left:50%;margin-left:-730px;width:150px; height:75px;border:0px solid gray;"> 
+<a href="/bbs/board.php?bo_table=KOR_ENTER&sca=&sop=and&sfl=wr_subject&stx=%EC%82%BC%EC%8B%9C%EC%84%B8%EB%81%BC"><img src="http://toptrn.com/img/banner_samsi.gif" alt="삼시세끼시즌2어촌편" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_ENTER&sca=&sop=and&sfl=wr_subject&stx=%EB%AC%B4%ED%95%9C%EB%8F%84%EC%A0%84"><img src="http://toptrn.com/img/banner_mudo.gif" alt="무한도전" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_DRAMA&sca=&sop=and&sfl=wr_subject&stx=%EC%9C%A1%EB%A3%A1"><img src="http://toptrn.com/img/banner_6dragon.gif" alt="육룡이 나르샤" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_DRAMA&sca=&sop=and&sfl=wr_subject&stx=1988"><img src="http://toptrn.com/img/banner_1988.gif" alt="응답하라1988" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_DRAMA&sca=&sop=and&sfl=wr_subject&stx=%EC%86%A1%EA%B3%B3"><img src="http://toptrn.com/img/banner_song.gif" alt="송곳" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_DRAMA&sca=&sop=and&sfl=wr_subject&stx=%EC%98%A4+%EB%A7%88%EC%9D%B4+%EB%B9%84%EB%84%88%EC%8A%A4"><img src="http://toptrn.com/img/banner_venus.gif" alt="오 마이 비너스" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_ENTER&sca=&sop=and&sfl=wr_subject&stx=%ED%9E%88%EB%93%A0+%EC%8B%B1%EC%96%B4"><img src="http://toptrn.com/img/banner_hiddensinger.gif" alt="히든싱어4" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_ENTER&sca=&sop=and&sfl=wr_subject&stx=%EB%9F%B0%EB%8B%9D%EB%A7%A8"><img src="http://toptrn.com/img/banner_runningmanl.gif" alt="런닝맨" border="0"></a>
+<a href="/bbs/board.php?bo_table=KOR_ENTER&sca=&sop=and&sfl=wr_subject&stx=%EB%B3%B5%EB%A9%B4%EA%B0%80%EC%99%95"><img src="http://toptrn.com/img/banner_masksinger.gif" alt="복면가왕" border="0"></a>
+<a href="/bbs/board.php?bo_table=FOR_ING_DRAMA&sca=&sop=and&sfl=wr_subject&stx=%EC%9B%8C%ED%82%B9%EB%8D%B0%EB%93%9C"><img src="http://toptrn.com/img/banner_walkingdead_6.gif" alt="워킹데드 시즌6" border="0"></a>
+<a href="/bbs/board.php?bo_table=FOR_END_DRAMA&sca=&sop=and&sfl=wr_subject&stx=%EC%9B%8C%ED%82%B9%EB%8D%B0%EB%93%9C"><img src="http://toptrn.com/img/banner_walkingdead_all.gif" alt="워킹데드 전시즌 전체" border="0"></a>
+</div>
+-->
+<script>
+alert("잘못된 접근입니다.");
+//document.location.href = "";
+//alert('history.back();');
+history.back();
+</script>
+
+<noscript>
+<div id="validation_check">
+    <h1>다음 항목에 오류가 있습니다.</h1>
+    <p class="cbg">
+        잘못된 접근입니다.    </p>
+        <div class="btn_confirm">
+        <a href="">돌아가기</a>
+    </div>
+    
+</div>
+</noscript>
+
+
+
+<!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
+<!--[if lte IE 7]>
+<script>
+$(function() {
+    var $sv_use = $(".sv_use");
+    var count = $sv_use.length;
+
+    $sv_use.each(function() {
+        $(this).css("z-index", count);
+        $(this).css("position", "relative");
+        count = count - 1;
+    });
+});
+</script>
+<![endif]-->
+<!-- APMS 1.3.9 - G5.1.0/YC5.0.43 -->
+</body>
+</html>
