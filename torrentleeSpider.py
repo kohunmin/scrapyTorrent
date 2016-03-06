@@ -30,7 +30,8 @@ class BlogSpider(scrapy.Spider):
         createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
         diffDateTime = nowDateTime - createDateTime
         if diffDateTime.seconds < self.seconds :
-            print ("title", title, "url" , response.request.url , "command", command, 'seconds', diffDateTime.seconds )
+            print "[torrent]torrent download start"
+            print "title : " + title[0].encode("utf-8").strip() + "\nurl : " + response.request.url.encode("utf-8") + "\ncommand : " + command.encode("utf-8") + "\nseconds : " + str(diffDateTime.seconds)
             os.system(command.encode('utf-8'))
 
         yield {'url' : urlList[0]}
