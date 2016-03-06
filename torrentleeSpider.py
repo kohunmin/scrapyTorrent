@@ -12,7 +12,7 @@ class BlogSpider(scrapy.Spider):
         self.search = kwargs.get('search')
         self.seconds = int(kwargs.get('seconds'))
         self.path = kwargs.get('path')
-        self.start_urls = [ self.doamin + "/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
+        self.start_urls = [ self.domain + "/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
                            , self.domain + "/bbs/board.php?bo_table=torrent_kortv_ent&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
                            , self.domain + "/bbs/board.php?bo_table=torrent_kortv_social&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)]
 
