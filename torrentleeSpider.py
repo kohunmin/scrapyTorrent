@@ -34,4 +34,4 @@ class BlogSpider(scrapy.Spider):
             print "title : " + title[0].encode("utf-8").strip() + "\nurl : " + response.request.url.encode("utf-8") + "\ncommand : " + command.encode("utf-8") + "\nseconds : " + str(diffDateTime.seconds)
             os.system(command.encode('utf-8'))
 
-        yield {'url' : urlList[0]}
+        yield {"title" : title[0].encode("utf-8").strip(), "url" : response.request.url.encode("utf-8") , "command" : command.encode("utf-8") , "seconds" : diffDateTime.seconds }
