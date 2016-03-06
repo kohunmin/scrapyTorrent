@@ -1,10 +1,16 @@
 import scrapy
 import os
 import sys
+from urllib import quote, unquote
 
 class BlogSpider(scrapy.Spider):
     name = 'blogspider'
-    start_urls = ['http://www.tosarang2.net/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=%ED%83%9C%EC%96%91%EC%9D%98+%ED%9B%84%EC%98%88']
+    def __init__(self,*args,**kwargs):
+        super(BlogSpider, self).__init__(*args, **kwargs)
+        self.search = kwargs.get('search')
+        self.start_urls = ["http://www.tosarang2.net/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=%" + quote(self.search)]
+
+#    start_urls = ['http://www.tosarang2.net/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=%ED%83%9C%EC%96%91%EC%9D%98+%ED%9B%84%EC%98%88']
 
     def parse(self, response):
         Urllist = response.css('td.td_subject > a::attr("href")')
