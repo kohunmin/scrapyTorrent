@@ -30,10 +30,10 @@ class BlogSpider(scrapy.Spider):
         command = "transmission-remote 9091 -w " + self.path + " -a " + urlList[0]
         nowDateTime = datetime.now()
         createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
-        diffDateTime = nowDateTime - createDateTime
-        if diffDateTime.seconds < self.seconds :
+        diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
+        if diffSeconds < self.seconds :
             print "[torrent]torrent download start"
-            print "title : " + title[0].encode("utf-8").strip() + "\nurl : " + response.request.url.encode("utf-8") + "\ncommand : " + command.encode("utf-8") + "\nseconds : " + str(diffDateTime.seconds)
+            print "title : " + title[0].encode("utf-8").strip() + "\nurl : " + response.request.url.encode("utf-8") + "\ncommand : " + command.encode("utf-8") + "\ncreatTime : " + createTime + "\ndiff seconds : " + str(diffSeconds)
             os.system(command.encode('utf-8'))
 
-        yield {"title" : title[0].encode("utf-8").strip(), "url" : response.request.url.encode("utf-8") , "command" : command.encode("utf-8") , "seconds" : diffDateTime.seconds }
+        yield {"title" : title[0].encode("utf-8").strip(), "url" : response.request.url.encode("utf-8") , "command" : command.encode("utf-8"), "createTime" : createTime , "seconds" : diffSeconds }
