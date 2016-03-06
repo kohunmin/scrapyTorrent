@@ -12,9 +12,8 @@ class BlogSpider(scrapy.Spider):
         self.search = kwargs.get('search')
         self.seconds = int(kwargs.get('seconds'))
         self.path = kwargs.get('path')
-        self.start_urls = [ self.domain + "/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
-                           , self.domain + "/bbs/board.php?bo_table=torrent_kortv_ent&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
-                           , self.domain + "/bbs/board.php?bo_table=torrent_kortv_social&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)]
+        self.bo_table = kwargs.get('bo_table')
+        self.start_urls = [ self.domain + "/bbs/board.php?bo_table=" + self.bo_table + "&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)]
 
 #    start_urls = ['http://www.tosarang2.net/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=%ED%83%9C%EC%96%91%EC%9D%98+%ED%9B%84%EC%98%88']
 
