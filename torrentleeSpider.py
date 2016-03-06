@@ -29,7 +29,7 @@ class BlogSpider(scrapy.Spider):
         createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
         diffDateTime = nowDateTime - createDateTime
         if diffDateTime.seconds < self.seconds :
-            print ( "url" , urlList[0] , "command", command, 'seconds', diffDateTime.seconds )
+            print ( "url" , response.request.url , "command", command, 'seconds', diffDateTime.seconds )
             os.system(command.encode('utf-8'))
 
         yield {'url' : urlList[0]}
