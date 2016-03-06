@@ -25,7 +25,7 @@ class BlogSpider(scrapy.Spider):
 
     def parse_contents(self, response):
         title = response.css('header#bo_v_title > div > h3::text').extract()
-        urlList = response.css('section#bo_v_link > ul.list-unstyled > li > div > div > a::attr("href")').re("magnet:.*")
+        urlList = response.css('section#bo_v_link > ul.list-unstyled > li > div > div > a::attr("href")').re("magnet:.*&")
         createTime = response.css('section#bo_v_torrent > table > tr > td.value::text').re("[0-9]{4}-[0-9]{2}-[0-9]{2}.*")[0]
         command = "transmission-remote 9091 -w " + self.path + " -a " + urlList[0]
         nowDateTime = datetime.now()
