@@ -14,7 +14,7 @@ class BlogSpider(scrapy.Spider):
         self.path = kwargs.get('path')
         self.bo_table = kwargs.get('bo_table')
         url = self.domain + "/bbs/board.php?bo_table=" + self.bo_table + "&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
-        print "BUILD " + url
+        print "BUILDTORRENT " + url
         self.start_urls = [ url ]
 
 #    start_urls = ['http://www.tosarang2.net/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=%ED%83%9C%EC%96%91%EC%9D%98+%ED%9B%84%EC%98%88']
@@ -34,12 +34,12 @@ class BlogSpider(scrapy.Spider):
         createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
         diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
         if diffSeconds < self.seconds :
-            print "INFO [torrent]torrent download start"
-            print "INFO title : " + title[0].encode("utf-8").strip()
-            print "\nINFO url : " + response.request.url.encode("utf-8")
-            print "\nINFO command : " + command.encode("utf-8")
-            print "\nINFO creatTime : " + createTime[0]
-            print "\nINFO diff seconds : " + str(diffSeconds)
+            print "INFOTORRENT [torrent]torrent download start"
+            print "INFOTORRENT title : " + title[0].encode("utf-8").strip()
+            print "\nINFOTORRENT url : " + response.request.url.encode("utf-8")
+            print "\nINFOTORRENT command : " + command.encode("utf-8")
+            print "\nINFOTORRENT creatTime : " + createTime[0]
+            print "\nINFOTORRENT diff seconds : " + str(diffSeconds)
             os.system(command.encode('utf-8'))
 
         yield {"title" : title[0].encode("utf-8").strip(), "url" : response.request.url.encode("utf-8") , "command" : command.encode("utf-8"), "createTime" : createTime[0] , "seconds" : diffSeconds }
