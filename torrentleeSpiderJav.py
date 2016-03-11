@@ -40,13 +40,15 @@ class BlogSpider(scrapy.Spider):
 
     def contents2(self, response):
         downloadLink = response.css('a::attr("href")').re(".*torrent")[0]
+        print downloadLink
         time.sleep(0.1)
-        downloadLinkArray = downloadLink.split('/')
-        fileName = downloadLinkArray[len(downloadLinkArray) - 1]
-        wgetCommand = "wget --referer=" + response.request.url + " " + downloadLink + " -P " + self.downloadPath
-        transCallCommand = "transmission-remote 9091 -w " + self.path + " -a " + self.downloadPath + fileName
+#        downloadLinkArray = downloadLink.split('/')
+#        fileName = downloadLinkArray[len(downloadLinkArray) - 1]
+        #wgetCommand = "wget --referer=" + response.request.url + " " + downloadLink + " -P " + self.downloadPath
+        transCallCommand = "transmission-remote 9091 -w " + self.path + " -a " + str(downloadLink) + "rrent"
+        #transCallCommand += " -a " + self.downloadPath + "" +  str(fileName)
         print transCallCommand
-        os.system(wgetCommand)
+        #os.system(wgetCommand)
         os.system(transCallCommand)
 
 
