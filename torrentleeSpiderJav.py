@@ -12,8 +12,8 @@ class BlogSpider(scrapy.Spider):
         super(BlogSpider, self).__init__(*args, **kwargs)
         self.downloadPath = kwargs.get('toDownPath')
         self.path = kwargs.get('path')
-        #self.search = kwargs.get('search')
-        self.search = "%E9%88%B4%E5%8E%9F%E3%82%A8%E3%83%9F%E3%83%AA";
+        self.search = kwargs.get('search')
+        #self.search = "%E9%88%B4%E5%8E%9F%E3%82%A8%E3%83%9F%E3%83%AA";
         self.seconds = kwargs.get('sec')
         url = "http://javtorrent.xyz/tag/" + self.search + "/";
         print "BUILDTORRENT " + url
