@@ -44,13 +44,12 @@ class BlogSpider(scrapy.Spider):
         time.sleep(0.1)
         downloadLinkArray = downloadLink.split('/')
         fileName = downloadLinkArray[len(downloadLinkArray) - 1]
-        wgetCommand = "wget --referer=" + response.request.url + " " + downloadLink + " -P " + self.downloadPath + "1"
+        wgetCommand = "wget --referer=" + response.request.url + " " + downloadLink + " -P " + self.downloadPath
         transCallCommand = "transmission-remote 9091 -w " + self.path
-        transCallCommand += " -a " + self.downloadPath + "1"
+        transCallCommand += " -a " + self.downloadPath + str(fileName)
         print transCallCommand
         os.system(wgetCommand)
         os.system(transCallCommand)
-        os.system("rm " + self.downloadPath + "1")
 
 
 
