@@ -40,9 +40,9 @@ class BlogSpider(scrapy.Spider):
 
     def contents2(self, response):
         downloadLink = response.css('a::attr("href")').re(".*torrent")[0]
-        print downloadLink
         time.sleep(0.1)
-        fileName = re.findall("/.*torrent",downloadLink)[0]
+        downloadLinkArray = downloadLink.split('/')
+        fileName = downloadLinkArray[len(downloadLinkArray) - 1]
         wgetCommand = "wget --referer=" + response.request.url + " " + downloadLink + " -P " + self.downloadPath
         transCallCommand = "transmission-remote 9091 -w " + self.path + " -a " + self.downloadPath + fileName
         print transCallCommand
