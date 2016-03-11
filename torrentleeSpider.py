@@ -28,6 +28,8 @@ class BlogSpider(scrapy.Spider):
     def parse_contents(self, response):
         title = response.css('div#contents > div#bo_v > div#bo_v_title > h1::text').extract()
         urlList = response.css('div#contents > div#bo_v > div.bo_v_file > a::attr("href")').re("magnet:.*&")
+        hit = response.css('div#contents > div#bo_v > div.bo_v_info > td.td_info_right::text').re("[")
+        print hit
         createTime = response.css('div#contents > div#bo_v > div.bo_v_torrent > table > tr > td.value::text').re("[0-9]{4}-[0-9]{2}-[0-9]{2}.*")
         command = "transmission-remote 9091 -w " + self.path + " -a " + urlList[0]
         nowDateTime = datetime.now()
