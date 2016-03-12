@@ -29,6 +29,7 @@ class BlogSpider(scrapy.Spider):
             createDateTime = datetime.strptime(date,'%Y-%m-%dT%H:%M:%S+00:00')
             diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
             if diffSeconds < self.seconds :
+                print "INFOTORRENT " + url
                 yield scrapy.Request(url, self.contents1)
 
     def contents1(self, response):
@@ -40,14 +41,14 @@ class BlogSpider(scrapy.Spider):
 
     def contents2(self, response):
         downloadLink = response.css('a::attr("href")').re(".*torrent")[0]
-        print downloadLink
+        #print downloadLink
         time.sleep(0.1)
         downloadLinkArray = downloadLink.split('/')
         fileName = downloadLinkArray[len(downloadLinkArray) - 1]
         wgetCommand = "wget --referer=" + response.request.url + " " + downloadLink + " -P " + self.downloadPath
         transCallCommand = "transmission-remote 9091 -w " + self.path
         transCallCommand += " -a " + self.downloadPath + str(fileName)
-        print transCallCommand
+        print "INFOTORRENT " + transCallCommand
         os.system(wgetCommand)
         os.system(transCallCommand)
 
