@@ -28,7 +28,8 @@ class BlogSpider(scrapy.Spider):
             date = Datelist[idx]
             createDateTime = datetime.strptime(date,'%Y-%m-%dT%H:%M:%S+00:00')
             diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
-            if diffSeconds < self.seconds :
+            print str(diffSeconds) + " " + self.seconds
+            if int(diffSeconds) < int(self.seconds) :
                 print "INFOTORRENT " + url
                 yield scrapy.Request(url, self.contents1)
 
