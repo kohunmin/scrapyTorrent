@@ -20,7 +20,7 @@ class BlogSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        Urllist = response.css('td.td_subject > a::attr("href")')
+        Urllist = response.css('div#bo_l > form > div#bo_l_list > table > tbody > tr > td.td_subject > a::attr("href")')
         for url in Urllist.re("/bbs/board.php.*"):
             #print url
             yield scrapy.Request(response.urljoin(url), self.parse_contents)
