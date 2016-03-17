@@ -6,6 +6,7 @@ from datetime import datetime
 
 class BlogSpider(scrapy.Spider):
     name = 'blogspider'
+    start_urls = ['http://www.tosarang2.net/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=%ED%83%9C%EC%96%91%EC%9D%98+%ED%9B%84%EC%98%88']
     def __init__(self,*args,**kwargs):
         super(BlogSpider, self).__init__(*args, **kwargs)
         self.domain = kwargs.get('domain')
@@ -13,16 +14,15 @@ class BlogSpider(scrapy.Spider):
         self.seconds = int(kwargs.get('seconds'))
         self.path = kwargs.get('path')
         self.bo_table = kwargs.get('bo_table')
-        url = self.domain + "/bbs/board.php?bo_table=" + self.bo_table + "&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
-        print "BUILDTORRENT " + url
-        self.start_urls = [ url ]
+        # url = self.domain + "/bbs/board.php?bo_table=" + self.bo_table + "&sca=&sop=and&sfl=wr_subject&stx=" + quote(self.search)
+        # print "BUILDTORRENT " + url
+        # self.start_urls = [ url ]
 
-#    start_urls = ['http://www.tosarang2.net/bbs/board.php?bo_table=torrent_kortv_drama&sca=&sop=and&sfl=wr_subject&stx=%ED%83%9C%EC%96%91%EC%9D%98+%ED%9B%84%EC%98%88']
 
     def parse(self, response):
         Urllist = response.css('td.td_subject > a::attr("href")')
-        for url in Urllist.re(self.domain + "/bbs/board.php.*"):
-#            print url
+        for url in Urllist.re("/bbs/board.php.*"):
+            print url
             yield scrapy.Request(response.urljoin(url), self.parse_contents)
 
     def parse_contents(self, response):
