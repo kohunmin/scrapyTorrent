@@ -13,7 +13,6 @@ class TobestSpider(scrapy.Spider):
         "https://zipbogo.net/cdsb/board.php?board=kentertain"
     ]
 
-
     def parse(self, response):
         # print response.body
         # Urllist = response.css('div#bo_l_list > table > tbody > tr > td.td_subject > a::attr("href")')
