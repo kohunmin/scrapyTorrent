@@ -21,14 +21,15 @@ class BlogSpider(scrapy.Spider):
 
     def parse(self, response):
         nowDateTime = datetime.now()
-        Urllist = response.css('div#content > div#archive-posts > ul > li > span.entry-dl > a::attr("href")')
-        Datelist = response.css('div#content > div#archive-posts > ul > li a.entry-thumbnails-link > span > span.cate-ti::attr("title")').extract()
+        Urllist = response.css('div#content > div#archive-posts > div > li.clearfix > span.entry-dl > a::attr("href")')
+        Datelist = response.css('div#content > div#archive-posts > div > li.clearfix > a.entry-thumbnails-link > span > span.cate-ti::text').extract()
+	print len(Datelist)
         for idx , url in enumerate(Urllist.re(".*biz/j.php.*")):
             time.sleep(0.1)
             date = Datelist[idx]
-            createDateTime = datetime.strptime(date,'%Y-%m-%dT%H:%M:%S+00:00')
+            createDateTime = datetime.strptime(date,'%Y/%m/%d - %H:%M')
             diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
-            #print str(diffSeconds) + " " + self.seconds
+            print str(diffSeconds) + " " + self.seconds
             if int(diffSeconds) < int(self.seconds) :
                 print "INFOTORRENT " + url
                 yield scrapy.Request(url, self.contents1)
