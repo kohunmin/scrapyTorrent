@@ -45,16 +45,15 @@ class TobestSpider(scrapy.Spider):
         diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
         if diffSeconds < self.seconds :
             os.system(command.encode('utf-8'))
-        item = TobestItem()
-        item['title'] = title
-        item['url'] = response.request.url.encode("utf-8")
-        item['downUrlFile'] = response.urljoin(downUrl[0])
-        item['file_paths'] = filePaths[0]
-        item['hit'] = hit
-        item['createTime'] = createTime
-        item['diffSeconds'] = diffSeconds
-
-        yield item
+            item = TobestItem()
+            item['title'] = title
+            item['url'] = response.request.url.encode("utf-8")
+            item['downUrlFile'] = response.urljoin(downUrl[0])
+            item['file_paths'] = filePaths[0]
+            item['hit'] = hit
+            item['createTime'] = createTime
+            item['diffSeconds'] = diffSeconds
+            yield item
         #     print "INFOTORRENT [torrent]torrent download start"
         #     print "INFOTORRENT title : " + title[0].encode("utf-8").strip()
         #     print "\nINFOTORRENT url : " + response.request.url.encode("utf-8")
