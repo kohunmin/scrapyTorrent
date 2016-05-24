@@ -35,6 +35,7 @@ class BlogSpider(scrapy.Spider):
         nowDateTime = datetime.now()
         createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
         diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
+        print str(diffSeconds) + " " + self.seconds
         if diffSeconds < self.seconds :
             print "INFOTORRENT [torrent]torrent download start"
             print "INFOTORRENT title : " + title[0].encode("utf-8").strip()
