@@ -35,7 +35,7 @@ class BlogSpider(scrapy.Spider):
                 yield scrapy.Request(url, self.contents1)
 
     def contents1(self, response):
-        #print response.body
+        print response.body
         links = response.css('a::attr("href")').re(".*biz/d.php.*")
         for link in links:
             time.sleep(0.1)
