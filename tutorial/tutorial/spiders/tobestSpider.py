@@ -43,6 +43,7 @@ class TobestSpider(scrapy.Spider):
         nowDateTime = datetime.now()
         createDateTime = datetime.strptime(createTime[0],'%Y-%m-%d %H:%M:%S')
         diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
+	print "url " + response.request.url.encode("utf-8") + " diff" + str(diffSeconds) + " createDate : " + str(createDateTime)
         if diffSeconds < self.seconds :
             os.system(command.encode('utf-8'))
             item = TobestItem()

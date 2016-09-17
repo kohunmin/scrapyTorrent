@@ -15,27 +15,26 @@ class BlogSpider(scrapy.Spider):
         self.search = kwargs.get('search')
         #self.search = "%E9%88%B4%E5%8E%9F%E3%82%A8%E3%83%9F%E3%83%AA";
         self.seconds = kwargs.get('sec')
-        url = "http://torrentav.net/tag/" + self.search + "/";
+        url = "http://javtorrent.xyz/tag/" + self.search + "/";
         print "BUILDTORRENT " + url
         self.start_urls = [ url ]
 
     def parse(self, response):
         nowDateTime = datetime.now()
-        Urllist = response.css('div#content > div#archive-posts > div > li.clearfix > span.entry-dl > a::attr("href")')
-        Datelist = response.css('div#content > div#archive-posts > div > li.clearfix > a.entry-thumbnails-link > span > span.cate-ti::text').extract()
+        Urllist = response.css('div#content > div#archive-posts > div.posts-default > li > span.entry-dl > a::attr("href")')
+        Datelist = response.css('div#content > div#archive-posts > div.posts-default > li > a.entry-thumbnails-link > span.cate-meta > span.cate-ti::text').extract()
 	print len(Datelist)
+	print len(Urllist)
         for idx , url in enumerate(Urllist.re(".*biz/j.php.*")):
             time.sleep(0.1)
             date = Datelist[idx]
             createDateTime = datetime.strptime(date,'%Y/%m/%d - %H:%M')
             diffSeconds = ( nowDateTime - createDateTime ).total_seconds()
-            print str(diffSeconds) + " " + self.seconds
             if int(diffSeconds) < int(self.seconds) :
                 print "INFOTORRENT " + url
                 yield scrapy.Request(url, self.contents1)
 
     def contents1(self, response):
-        print response.body
         links = response.css('a::attr("href")').re(".*biz/d.php.*")
         for link in links:
             time.sleep(0.1)
